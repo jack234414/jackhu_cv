@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>My Project</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- Font Awesome Icon -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue2-smooth-scroll"></script>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper" id="app">
+        <!------------------------------------------------
+        Sidebar
+        ------------------------------------------------->
+        <nav id="sidebar">
+            <!-- A div for placing Ara logo -->
+            <div class="sidebar-header">
+              <img src="ara_logo.jpg" alt="">
+            </div>
+            <!-- Assessment list area -->
+            <ul class="list-unstyled components">
+                <p><big>Assessment List</big></p>
+                <!-- Uses active class to show the current page -->
+                <li>
+                    <!-- By useing hashtag(ex: IterSubmenu1) in href, it can reference the same ID to show the correct submenu -->
+                    <a href="#IterSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">1st Iteration</a>
+                    <ul class="collapse list-unstyled" id="IterSubmenu1">
+                      <li>
+                          <!-- Put the link of your report on OneDrive -->
+                          <a target="_blank" href="https://tewaka-my.sharepoint.com/:w:/g/personal/pih0069_arastudent_ac_nz/EdwQN1tkvotOvFyty5rSrQoBEwNYQuO6JQT1BMnvgasXIQ?e=SzQH3N">Report</a>
+                      </li>
+                      <li>
+                          <a v-on:click="set1();setWelcome();Restart();" style="cursor:pointer;">Run Code</a>
+                      </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#IterSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">2nd Iteration</a>
+                    <ul class="collapse list-unstyled" id="IterSubmenu2">
+                        <li>
+                            <a target="_blank" href="https://tewaka-my.sharepoint.com/:w:/g/personal/pih0069_arastudent_ac_nz/EQtHAzWyZj5BlV2LocRdxFABaFHRsYdw6i10xlqCCZi04Q?e=pftUCY">Report</a>
+                        </li>
+                        <li>
+                            <a v-on:click="set2();setWelcome();Restart();" style="cursor:pointer;">Run Code</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#IterSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">3rd Iteration</a>
+                    <ul class="collapse list-unstyled" id="IterSubmenu3">
+                        <li>
+                            <a target="_blank" href="https://tewaka-my.sharepoint.com/:w:/g/personal/pih0069_arastudent_ac_nz/EUE0iCvcPCRJkhAnCRCsSm0B0K_0YAVFnaRiks9w3AS9FA?e=iJeOHG">Report</a>
+                        </li>
+                        <li>
+                            <a v-on:click="set3();setWelcome();Restart();" style="cursor:pointer;">Run Code</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#IterSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">4th Iteration</a>
+                    <ul class="collapse list-unstyled" id="IterSubmenu4">
+                        <li>
+                            <a href="https://tewaka-my.sharepoint.com/:w:/g/personal/pih0069_arastudent_ac_nz/EQ2zucbHpxZHnyU1lhviDSsBkDrZs-d16x7Op4tB62mpGg?e=GBgDNg">Report</a>
+                        </li>
+                        <li>
+                            <a v-on:click="set4();setWelcome();Restart();" style="cursor:pointer;">Run Code</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!------------------------------------------------
+            source codes and back to Moodle button
+            ------------------------------------------------->
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://tewaka-my.sharepoint.com/:u:/g/personal/pih0069_arastudent_ac_nz/EZ144SbBevJKlV5hojLBZF4B-vHtFXS9ayfTt0jgpnN0LA?e=ivsFJl" class="download">Download source</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://moodle.ara.ac.nz/course/view.php?id=6464" class="moodel">Back to Ara Moodle</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!------------------------------------------------
+        Page Content
+        ------------------------------------------------->
+        <div id="content">
+            <!------------------------------------------------
+             Toggle button and home button
+            ------------------------------------------------->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- the toggle button -->
+                    <!-- the "fas" class of theme and icon is referenced from FontAwesome -->
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <!-- after clicking the button, it will use bootstrap component - Navbar to collapse the page
+                    https://getbootstrap.com/docs/4.0/components/navbar/
+                    -->
+                    &nbsp;
+                    <!-- the home button -->
+                    <button type="button" class="btn btn-info" v-on:click="setHome();home();">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </button>
+                    <!--
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"
+                    >
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    -->
+                </div>
+            </nav>
+
+            <!------------------------------------------------
+            Jumbotron
+            ------------------------------------------------->
+            <!-- you can directly call jumbotron components and classes from bootstrap -->
+            <div class="jumbotron text-center" >
+                <h1 v-if="welcome"><b>Welcome to My JS Project</b></h1>
+                <h2 v-if="welcome">----------------Overview----------------</h2>
+                <p v-if="welcome">This project includes 4 iterations, you can run each iteration by clicking each one from the sidebar.<br> Enjoy it!</p>
+                <img v-if="welcome" class="img-fluid" src="cheers.gif" alt="cheers" style="width:620px; height:300px;"></img>
+
+                <!-- please check seen functions in script.js, the methods are named set1, set2,...,set4 -->
+                <h1 v-if="seen1"><b>Number Guessing Game</b></h1>
+                <h2 v-if="seen1">Assessment 1</h2>
+                <p v-if="seen1">Please enter a number between 0 - 99</p>
+
+                <h1 v-if="seen2"><b>Number Guessing Game</b></h1>
+                <h2 v-if="seen2">Assessment 2</h2>
+                <p v-if="seen2">Please enter a number between 0 - 99. According to what you input, we are going to response you a weather condition. <br> Different weather conditions represent a specific difference to the correct number.
+                </p>
+
+                <h1 v-if="seen3"><b>Number Guessing Game<br>(for computer player)</b></h1>
+                <h2 v-if="seen3">Assessment 3</h2>
+                <p v-if="seen3">Please set a number between 0 - 99 for computer guessing</p>
+
+                <h1 v-if="seen4"><b>Number Guessing Game<br>(for computer player)</b></h1>
+                <h2 v-if="seen4">Assessment 4</h2>
+                <p v-if="seen4">Please enter a number between 0 - 99. According to what computer guesses, we are going to choose a weather condition to response. <br> Different weather conditions represent a specific difference to the correct number.
+                </p>
+            </div>
+
+            <!------------------------------------------------
+            Iteration 1
+            ------------------------------------------------->
+            <!-- divide a div into 3 columns -->
+            <div class="container" v-if="seen1">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Enter a number here</h3>
+                        <input type = "text" v-model="message" placeholder=" 1,2,3 or ..."></input>
+                        &nbsp;
+                        <!--<form v-on:submit.prevent="Submit">-->
+                        <button v-on:click="Submit" :disabled='disabled' class="btn btn-info">Submit</button>
+                        <br>
+                        <button v-on:click ="Restart" class="btn btn-info">Restart</button>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Guessing Result</h3>
+                          <!--<p><span v-if="guessed" style="background-color: #FFFF00"><b>{{result}}</b></span></p>
+                          -->
+                          <p><span id="newColor" v-if="guessed"><b>{{result}}</b></span></p>
+                          <img v-if="congratsImg" src="source.gif" alt="congratsImg" style="width:240px; height:120px;"></img>
+                          <p>{{restartNote}}</p>
+                          <br>
+                          <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Times you've tired</h3>
+                        <p>You've already tired: <span style="background-color:Yellow;"><b>{{numTrial}}</b></span> times</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <!------------------------------------------------
+                Units Testing Area for catching the variables
+                ------------------------------------------------->
+                <div class="line"></div>
+                <form style="background-color:lightyellow;
+                width: auto;
+                height: auto;
+                border-radius:10px;
+                ">
+                    <h3>testing area</h3>
+                    <p>The random number is: {{correctNum}}</p>
+                    <p>The number you input is: {{parseInt(this.message)}}</p>
+                </form>
+            </div>
+
+            <!------------------------------------------------
+            Iteration 2
+            ------------------------------------------------->
+            <!-- divide a div into 3 columns -->
+            <div class="container" v-if="seen2">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Enter a number here</h3>
+                        <input type = "text" v-model="message" placeholder=" 1,2,3 or ...">
+                        &nbsp;
+                        </input>
+                        <button v-on:click="Submit2" :disabled='disabled' class="btn btn-info">Submit</button>
+                        <br>
+                        <button v-on:click ="Restart" class="btn btn-info">Restart</button>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Guessing Result</h3>
+                          <!--<p><span v-if="guessed" style="background-color: #FFFF00"><b>{{result}}</b></span></p>
+                          -->
+                          <p><span id="newColor" v-if="guessed"><b>{{result}}</b></p>
+                          <img v-if="congratsImg" src="source.gif" alt="congratsImg" style="width:240px; height:120px;"></img>
+                          <p>{{restartNote}}</p>
+                          <br>
+                          <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Times you've tired</h3>
+                        <p>You've already tired: <span style="background-color:Yellow;"><b>{{numTrial}}</b></span> times</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Testing Area for catching the variables-->
+                <div class="line"></div>
+                <form style="background-color:lightyellow;
+                width: auto;
+                height: auto;
+                border-radius:10px;
+                ">
+                <h3>testing area</h3>
+                <p>The random number is: {{correctNum}}</p>
+                <p>The number you input is: {{parseInt(this.message)}}</p>
+                <p>The absolute value of a number is: {{diffRange}} </p>
+                </form>
+            </div>
+
+          <!------------------------------------------------
+          Iteration 3
+          ------------------------------------------------->
+          <!-- divide a div into 3 columns -->
+            <div class="container" v-if="seen3">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Set a number here</h3>
+                        <input type = "text" v-model="message" placeholder=" 1,2,3 or ...">
+                        </input>
+                        <!--<form v-on:submit.prevent="Submit"></form> &nbsp;-->
+                        <br>
+                        <br>
+                        <button  v-on:click="setNum3" :disabled="setted" class="btn btn-info">Set Number</button>
+                        <br>
+                        <br>
+                        <button v-on:click="Restart" class="btn btn-info">Restart</button>
+                        <br>
+                        <br>
+                        <h3> You set number: {{correctNum3}}</h3>
+                        <br>
+                        <p v-if="wrongGuessed">{{errResult}}</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Computer thinking...</h3>
+                        <form v-on:submit.prevent="addGuess3">
+                        <button :disabled="guessed3" class="btn btn-info">Start Guess</button>
+                        </form>
+                        <br>
+                        <button v-on:click="tryhigher" :disabled="disabled3" class="btn btn-info">Higher</button>
+                        <button v-on:click="trylower" :disabled="disabled3" class="btn btn-info">Lower</button>
+                        <button v-on:click="correct3" :disabled="disabled3" class="btn btn-info">Correct!</button>
+                        <br>
+                        <br>
+                        <div style="text-align: center;
+                        border-radius:10px;
+                        background-color:#00539C;
+                        color:White;
+                        ">Computer guessing list:
+                        </div>
+                        <div style="background-color:Aquamarine;
+                        width: auto;
+                        height: auto;
+                        border-radius:10px;
+                        column-count: 1;
+                        column-gap: 1em;
+                        text-overflow: ellipsis;
+                        word-wrap: break-word;
+                        overflow: hidden;
+                        max-height: 30em;
+                        line-height: 1.5em;
+                        ">
+                        <div
+                        is = "todo-item"
+                        v-for="(guessList, index) in guessList"
+                        v-bind:number="guessList.number"
+                        :key ="index"
+                        >
+                        <b>{{ index }}</b>: {{ guessList.number }}
+                        </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Times you've tired</h3>
+                        <p>You've already tired: <span style="background-color:Yellow;"><b>{{numTrial}}</b></span> times</p>
+                        <br>
+                        <h3>Computer's reply</h3>
+                        <p><span id="newColor">{{computerReply}}</span></p>
+                        <img v-if="congratsImg" src="source.gif" alt="congratsImg" style="width:240px; height:120px;"></img>
+                        <img v-if="liarImg" src="liar.gif" alt="liarImg" style="width:240px; height:120px;"></img>
+
+                        <p>{{restartNote}}</p>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Testing Area for catching the variables-->
+                <div class="line"></div>
+                <form style="background-color:lightyellow;
+                width: auto;
+                height: auto;
+                border-radius:10px;
+                ">
+                <h3>testing area</h3>
+                <p>The number you set is: {{parseInt(this.message)}}</p>
+                <p>The number computer guesses is: {{newGuess}}</p>
+                </form>
+            </div>
+
+        <!------------------------------------------------
+        Iteration 4
+        ------------------------------------------------->
+            <div class="container" v-if="seen4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Set a number here</h3>
+                        <input type = "text" v-model="message" placeholder=" 1,2,3 or ...">
+                        </input>
+                        <!--<form v-on:submit.prevent="Submit"></form> &nbsp;-->
+                        <br>
+                        <br>
+                        <button v-on:click="setNum4" :disabled="setted" class="btn btn-info">Set Number</button>
+                        <br>
+                        <br>
+                        <button v-on:click="Restart" class="btn btn-info">Restart</button>
+                        <br>
+                        <br>
+                        <h3> You set number: {{correctNum4}}</h3>
+                        <br>
+                        <p v-if="wrongGuessed">{{errResult}}</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Computer thinking...</h3>
+                        <form v-on:submit.prevent="addGuess4">
+                        <button :disabled="guessed4" class="btn btn-info">Start Guess</button>
+                        <button v-on:click="correct" :disabled="disabled4" class="btn btn-info">Correct!</button>
+                        </form>
+                        <br>
+                        <button v-on:click="hot" :disabled="disabled4" class="btn btn-info">Hot</button>
+                        <button v-on:click="warm" :disabled="disabled4" class="btn btn-info">Warmr</button>
+                        <button v-on:click="cool" :disabled="disabled4" class="btn btn-info">Cool</button>
+                        <button v-on:click="cold" :disabled="disabled4" class="btn btn-info">Cold</button>
+                        <br>
+                        <br>
+
+                        <div id="prompt" style="text-align: center;
+                        border-radius:10px;
+                        ">&nbsp;{{diffRange}}&nbsp;</div>
+                        <div id="toggDiv" style="background-color:Aquamarine;
+                        width: auto;
+                        height: auto;
+                        border-radius:10px;
+                        column-count: 3;
+                        column-gap: 1em;
+                        text-overflow: ellipsis;
+                        word-wrap: break-word;
+                        overflow: hidden;
+                        max-height: 30em;
+                        line-height: 1.5em;
+                        display: none;
+                        ">
+
+                        <div v-for="(guessList, index) in guessList"
+                        v-bind:number="guessList.number"
+                        :key ="index"
+                        >
+                         <b>{{ index }}</b>: {{ guessList.number }}
+                        </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Times you've tired</h3>
+                        <p>You've already tired: <span style="background-color:Yellow;"><b>{{numTrial}}</b></span> times</p>
+                        <br>
+                        <p>You can only try <span style="background-color:Yellow;"><b>40</b></span> times, otherwise you lose!</p>
+                        <h3>Computer's reply</h3>
+                        <p><span id="newColor">{{computerReply}}</span></p>
+                        <img v-if="congratsImg" src="source.gif" alt="congratsImg" style="width:240px; height:120px;"></img>
+                        <img v-if="liarImg" src="liar.gif" alt="liarImg" style="width:240px; height:120px;"></img>
+                        <img v-if="loseImg" src="lose.gif" alt="loseImg" style="width:240px; height:120px;"></img>
+                        <p>{{restartNote}}</p>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Testing Area for catching the variables-->
+                <div class="line"></div>
+                <form style="background-color:lightyellow;
+                width: auto;
+                height: auto;
+                border-radius:10px;
+                ">
+                <h3>testing area</h3>
+                <p>The number you set is: {{parseInt(this.message)}}</p>
+                <p>The number computer guesses is: {{newGuess}}</p>
+                <p>The absolute value of a number is: {{absoluteNum}} </p>
+                <p>The Maxnum is: {{maxnum}} </p>
+                <p>The Mixnum is: {{mixnum}} </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- when you click toggle button, toggle the "active" class(seeing in style.css) to implement collapse action on sidebar-->
+    <!-- ref: https://stackoverflow.com/questions/45730130/collapse-sidebar-on-page-load -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <!------------------------------------------------
+    My own JS script
+    ------------------------------------------------->
+    <script src="script.js"></script>
+</body>
+
+<!------------------------------------------------
+Footer
+------------------------------------------------->
+<!-- Setting a beautiful gradient by uigradients -->
+<!-- ref: https://uigradients.com/#CoolBlues -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="
+    background: linear-gradient(to left, #7386d5, #6d7fcc);
+    margin-bottom: 0px;
+    height: 80px;
+    width: 100%;
+    ">
+        <p style="color: #fff;
+        margin-left: 400px;
+        margin-bottom: 0px;
+        "> &copy; Jack Hu (STD: 99203632)</p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="far" style="font-size:24px;
+        color: white;
+        ">&#xf0e0;</i>
+        <a href="mailto:pih0069@arastudent.ac.nz" style="color: #ffff;">&nbsp;<u>pih0069@arastudent.ac.nz</u></a>
+    </nav>
+</html>
